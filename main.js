@@ -17,11 +17,39 @@ const fortunes = [
 const fortuneText = document.getElementById('fortune-text');
 const fortuneButton = document.getElementById('fortune-button');
 const cookie = document.getElementById('cookie');
+const themeToggle = document.getElementById('theme-toggle');
+const htmlElement = document.documentElement; // Or document.body, but CSS target is [data-theme]
 
 function getFortune() {
     const randomIndex = Math.floor(Math.random() * fortunes.length);
     fortuneText.textContent = fortunes[randomIndex];
 }
 
+// Theme Logic
+function setTheme(theme) {
+    htmlElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+    // Update button icon if needed, though 🌓 works for both
+}
+
+function toggleTheme() {
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    setTheme(newTheme);
+}
+
+// Initialize Theme
+const savedTheme = localStorage.getItem('theme');
+const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+if (savedTheme) {
+    setTheme(savedTheme);
+} else if (prefersDark) {
+    setTheme('dark');
+} else {
+    setTheme('light');
+}
+
 fortuneButton.addEventListener('click', getFortune);
 cookie.addEventListener('click', getFortune);
+themeToggle.addEventListener('click', toggleTheme);

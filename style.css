@@ -1,19 +1,41 @@
+:root {
+    --bg-color: #f0f0f0;
+    --container-bg: #ffffff;
+    --text-color: #333333;
+    --button-bg: #4CAF50;
+    --button-hover: #45a049;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] {
+    --bg-color: #121212;
+    --container-bg: #1e1e1e;
+    --text-color: #e0e0e0;
+    --button-bg: #bb86fc;
+    --button-hover: #9b6dd3;
+    --shadow-color: rgba(0, 0, 0, 0.5);
+}
+
 body {
     font-family: sans-serif;
-    background-color: #f0f0f0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     margin: 0;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .container {
     text-align: center;
-    background-color: white;
+    background-color: var(--container-bg);
     padding: 2rem;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px var(--shadow-color);
+    transition: background-color 0.3s, box-shadow 0.3s;
+    position: relative;
 }
 
 .cookie-container {
@@ -36,15 +58,39 @@ body {
 }
 
 #fortune-button {
-    background-color: #4CAF50;
-    color: white;
+    background-color: var(--button-bg);
+    color: white; /* Keep white text for contrast on green/purple */
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+[data-theme="dark"] #fortune-button {
+    color: #121212; /* Dark text on light purple button for better contrast */
 }
 
 #fortune-button:hover {
-    background-color: #45a049;
+    background-color: var(--button-hover);
+}
+
+/* Theme Toggle Button */
+#theme-toggle {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-color);
+    padding: 5px;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+}
+
+#theme-toggle:hover {
+    background-color: var(--shadow-color);
 }
