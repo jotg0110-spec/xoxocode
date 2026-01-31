@@ -1,56 +1,68 @@
+// Link to your Teachable Machine model
 // IMPORTANT: Place your model.json and metadata.json inside the 'my_model' folder
-// The 'my_model' folder should be in the same directory as animal.html
 const URL = "./my_model/";
 
-let model, webcam, maxPredictions;
+let model, maxPredictions;
 
-// Load the image model and setup the webcam
+// Load the image model
 async function init() {
     const modelURL = URL + "model.json";
     const metadataURL = URL + "metadata.json";
 
     try {
         document.getElementById('loading').style.display = 'block';
-        // Load the model
         model = await tmImage.load(modelURL, metadataURL);
         maxPredictions = model.getTotalClasses();
         document.getElementById('loading').style.display = 'none';
-
-        // Convenience function to setup a webcam
-        const flip = true; // whether to flip the webcam
-        webcam = new tmImage.Webcam(200, 200, flip); // width, height, flip
-        await webcam.setup(); // request access to the webcam
-        await webcam.play();
-        window.requestAnimationFrame(loop);
-
-        // append elements to the DOM
-        document.getElementById("webcam-container").appendChild(webcam.canvas);
-        console.log("Model and Webcam Loaded");
-        document.getElementById("start-webcam-button").style.display = 'none'; // Hide start button after init
+        console.log("Model Loaded");
     } catch (e) {
-        document.getElementById('loading').textContent = "Error loading model or webcam. Check console for details. Ensure 'my_model' folder exists with model.json and metadata.json.";
-        console.error("Error during init:", e);
+        document.getElementById('loading').textContent = "Error loading model. Check console for details. Ensure 'my_model' folder exists with model.json and metadata.json.";
+        console.error(e);
     }
 }
 
-async function loop() {
-    if (webcam) {
-        webcam.update(); // update the webcam frame
-        await predict();
-        window.requestAnimationFrame(loop);
-    }
-}
+// Initialize model when page loads
+init();
 
-// run the webcam image through the image model
+const imageUpload = document.getElementById('image-upload');
+const imagePreview = document.getElementById('image-preview');
+const uploadLabel = document.querySelector('.upload-label');
+const predictButton = document.getElementById('predict-button');
+const labelContainer = document.getElementById('label-container');
+
+// Handle Image Upload
+imageUpload.addEventListener('change', function(e) {
+    const file = e.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            imagePreview.src = e.target.result;
+            imagePreview.style.display = 'block';
+            uploadLabel.style.display = 'none';
+            predictButton.style.display = 'inline-block';
+            labelContainer.innerHTML = ""; // Clear previous results
+        }
+        reader.readAsDataURL(file);
+    }
+});
+
+// Handle Prediction
+predictButton.addEventListener('click', async function() {
+    if (!model) {
+        alert("Model is still loading, please wait...");
+        return;
+    }
+    await predict();
+});
+
 async function predict() {
-    if (!model || !webcam) return;
-    const prediction = await model.predict(webcam.canvas);
+    // predict can take in an image, video or canvas html element
+    const prediction = await model.predict(imagePreview);
     
-    prediction.sort((a, b) => b.probability - a.probability); // Sort to show highest probability first
+    // Sort predictions by probability (highest first)
+    prediction.sort((a, b) => b.probability - a.probability);
 
-    const labelContainer = document.getElementById('label-container');
-    labelContainer.innerHTML = ""; // Clear previous results
-
+    labelContainer.innerHTML = "";
     for (let i = 0; i < maxPredictions; i++) {
         const resultItem = document.createElement("div");
         resultItem.className = "result-item";
@@ -86,8 +98,7 @@ async function predict() {
     }
 }
 
-
-// Theme Toggle Logic (replicated from main.js for this page's button)
+// Theme Toggle Logic
 const themeToggle = document.getElementById('theme-toggle');
 const htmlElement = document.documentElement;
 
@@ -104,12 +115,10 @@ function toggleTheme() {
 
 if (themeToggle) {
     themeToggle.addEventListener('click', toggleTheme);
-    // Apply theme on load for this specific page too
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
         setTheme(savedTheme);
     } else {
-        // Check system preference
         const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
         if (prefersDark) {
             setTheme('dark');
