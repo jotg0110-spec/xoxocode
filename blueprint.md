@@ -16,11 +16,11 @@ This is a simple web application that displays a random fortune cookie message w
 *   A button to generate a new fortune.
 *   **Dark/Light Mode:** A toggle to switch between dark and light themes, persisting user preference.
 *   **Partnership Inquiry Form (Formspree):** A simple contact form for users to send inquiries.
+*   **Disqus Comments:** Integration of Disqus for comments section.
 
 ## Current Plan
 
-*   **Objective:** Add a simple partnership inquiry form using Formspree.
+*   **Objective:** Integrate Disqus comments into the page.
 *   **Steps:**
-    1.  Add a new section and the HTML form structure to `index.html`.
-    2.  Add basic styling for the form elements to `style.css`.
-    3.  Commit and deploy changes to GitHub.
+    1.  Add the Disqus comment `div` and script to `index.html`.
+    2.  Commit and deploy changes to GitHub.
