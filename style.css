@@ -223,6 +223,55 @@ body {
 #webcam-container canvas {
     display: block; /* Remove extra space below canvas */
 }
+
+/* Content Sections (SEO & AdSense) */
+.content-section {
+    max-width: 800px;
+    text-align: left;
+    background-color: var(--container-bg);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px var(--shadow-color);
+    line-height: 1.6;
+}
+
+.content-section h2 {
+    color: var(--button-bg);
+    margin-bottom: 1rem;
+}
+
+.content-section p {
+    margin-bottom: 1rem;
+}
+
+/* Footer */
+footer {
+    width: 100%;
+    background-color: var(--nav-bg);
+    color: var(--nav-text);
+    padding: 2rem 0;
+    text-align: center;
+    margin-top: auto; /* Push to bottom if using flex column on body */
+    box-shadow: 0 -2px 4px var(--shadow-color);
+}
+
+.footer-links {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.footer-links a {
+    color: var(--nav-text);
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.footer-links a:hover {
+    color: var(--button-bg);
+    text-decoration: underline;
+}
 .upload-container {
     margin: 20px 0;
     border: 2px dashed var(--text-color);

@@ -20,11 +20,14 @@ This is a simple web application that displays a random fortune cookie message w
 *   **Animal Face Test:** A new page using Google Teachable Machine to classify images as Dog or Cat, utilizing file upload input and a local model.
 
 *   **AdSense Integration:** Google AdSense script added for monetization.
+*   **AdSense Optimization:** Enhanced content, SEO meta tags, and Privacy Policy page to meet approval standards.
 
 ## Current Plan
 
-*   **Objective:** Integrate Google AdSense script into all HTML pages.
+*   **Objective:** Optimize the website for Google AdSense approval.
 *   **Steps:**
-    1.  Add the provided AdSense script tag to the `<head>` section of `index.html`.
-    2.  Add the provided AdSense script tag to the `<head>` section of `animal.html`.
-    3.  Commit and deploy changes.
+    1.  Create `privacy.html` (Privacy Policy page).
+    2.  Update `index.html`: Add SEO meta tags, a descriptive article about Fortune Cookies, and a footer.
+    3.  Update `animal.html`: Add SEO meta tags, a descriptive article about the test, and a footer.
+    4.  Update `style.css` for the new content and footer.
+    5.  Commit and deploy.
