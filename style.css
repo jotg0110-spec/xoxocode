@@ -76,6 +76,69 @@ body {
     background-color: var(--button-hover);
 }
 
+/* Form Styles */
+.form-container {
+    margin-top: 2rem;
+    max-width: 500px;
+}
+
+.form-container h2 {
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+    font-weight: bold;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--text-color);
+    border-radius: 5px;
+    box-sizing: border-box; /* Include padding in width */
+    background-color: var(--container-bg);
+    color: var(--text-color);
+    transition: border-color 0.3s;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group textarea:focus {
+    border-color: var(--button-bg);
+    outline: none;
+}
+
+.form-group textarea {
+    resize: vertical; /* Allow vertical resizing */
+}
+
+.submit-button {
+    background-color: var(--button-bg);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+    width: 100%; /* Make button full width */
+}
+
+.submit-button:hover {
+    background-color: var(--button-hover);
+}
+
 /* Theme Toggle Button */
 #theme-toggle {
     position: absolute;
