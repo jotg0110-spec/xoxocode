@@ -19,10 +19,12 @@ This is a simple web application that displays a random fortune cookie message w
 *   **Disqus Comments:** Integration of Disqus for comments section.
 *   **Animal Face Test:** A new page using Google Teachable Machine to classify images as Dog or Cat, utilizing file upload input and a local model.
 
+*   **AdSense Integration:** Google AdSense script added for monetization.
+
 ## Current Plan
 
-*   **Objective:** Revert Animal Face Test page to use file upload instead of webcam.
+*   **Objective:** Integrate Google AdSense script into all HTML pages.
 *   **Steps:**
-    1.  Modify `animal.html` to remove webcam elements and restore file upload interface.
-    2.  Update `animal.js` to handle file reading and prediction on the uploaded image.
+    1.  Add the provided AdSense script tag to the `<head>` section of `index.html`.
+    2.  Add the provided AdSense script tag to the `<head>` section of `animal.html`.
     3.  Commit and deploy changes.
