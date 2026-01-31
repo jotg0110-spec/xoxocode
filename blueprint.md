@@ -17,14 +17,14 @@ This is a simple web application that displays a random fortune cookie message w
 *   **Dark/Light Mode:** A toggle to switch between dark and light themes, persisting user preference.
 *   **Partnership Inquiry Form (Formspree):** A simple contact form for users to send inquiries.
 *   **Disqus Comments:** Integration of Disqus for comments section.
-*   **Animal Face Test:** A new page using Google Teachable Machine to classify images as Dog or Cat.
+*   **Animal Face Test:** A new page using Google Teachable Machine to classify images as Dog or Cat, utilizing webcam input and a local model.
 
 ## Current Plan
 
-*   **Objective:** Create the Animal Face Test page.
+*   **Objective:** Modify the Animal Face Test page to use webcam input and a local Teachable Machine model.
 *   **Steps:**
-    1.  Create `animal.html` with a file upload interface and result display.
-    2.  Create `animal.js` to handle image loading and Teachable Machine prediction (using a placeholder URL).
-    3.  Update `style.css` to style the upload preview and result bars.
-    4.  Add navigation links to `index.html` and `animal.html` to switch between features.
-    5.  Deploy changes.
+    1.  Modify `animal.html` to integrate webcam elements and remove image upload.
+    2.  Update `animal.js` with the provided webcam-based Teachable Machine code, adapting result display to use existing styling.
+    3.  Create `my_model` directory and instruct the user to place their model files there.
+    4.  Adjust `style.css` if necessary for webcam display.
+    5.  Commit and deploy changes.

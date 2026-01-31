@@ -213,7 +213,16 @@ body {
     background-color: var(--shadow-color);
 }
 
-/* Animal Test Specifics */
+#webcam-container {
+    margin: 20px auto;
+    border: 1px solid var(--text-color);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#webcam-container canvas {
+    display: block; /* Remove extra space below canvas */
+}
 .upload-container {
     margin: 20px 0;
     border: 2px dashed var(--text-color);
