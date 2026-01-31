@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animal Face Test</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+</head>
+<body>
+    <div class="nav-bar">
+        <a href="index.html" class="nav-link">Fortune Cookie</a>
+        <a href="animal.html" class="nav-link active">Animal Face Test</a>
+    </div>
+
+    <div class="container">
+        <button id="theme-toggle" aria-label="Toggle Dark Mode">🌓</button>
+        <h1>Animal Face Test</h1>
+        <p>Upload a photo to see if it looks more like a Dog or a Cat!</p>
+        
+        <div class="upload-container">
+            <input type="file" id="image-upload" accept="image/*" hidden>
+            <label for="image-upload" class="upload-label">
+                <div class="upload-icon">📸</div>
+                <span>Click to Upload Image</span>
+            </label>
+            <img id="image-preview" src="#" alt="Image Preview" style="display: none;">
+        </div>
+
+        <div id="loading" style="display: none;">Loading Model...</div>
+        
+        <div id="label-container" class="result-container"></div>
+        
+        <button id="predict-button" style="display: none;">Analyze Face</button>
+    </div>
+
+    <script src="animal.js"></script>
+</body>
+</html>

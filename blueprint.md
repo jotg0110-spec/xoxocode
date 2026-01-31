@@ -17,10 +17,14 @@ This is a simple web application that displays a random fortune cookie message w
 *   **Dark/Light Mode:** A toggle to switch between dark and light themes, persisting user preference.
 *   **Partnership Inquiry Form (Formspree):** A simple contact form for users to send inquiries.
 *   **Disqus Comments:** Integration of Disqus for comments section.
+*   **Animal Face Test:** A new page using Google Teachable Machine to classify images as Dog or Cat.
 
 ## Current Plan
 
-*   **Objective:** Integrate Disqus comments into the page.
+*   **Objective:** Create the Animal Face Test page.
 *   **Steps:**
-    1.  Add the Disqus comment `div` and script to `index.html`.
-    2.  Commit and deploy changes to GitHub.
+    1.  Create `animal.html` with a file upload interface and result display.
+    2.  Create `animal.js` to handle image loading and Teachable Machine prediction (using a placeholder URL).
+    3.  Update `style.css` to style the upload preview and result bars.
+    4.  Add navigation links to `index.html` and `animal.html` to switch between features.
+    5.  Deploy changes.

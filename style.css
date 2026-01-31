@@ -5,6 +5,9 @@
     --button-bg: #4CAF50;
     --button-hover: #45a049;
     --shadow-color: rgba(0, 0, 0, 0.1);
+    --nav-bg: #ffffff;
+    --nav-text: #333333;
+    --nav-active: #4CAF50;
 }
 
 [data-theme="dark"] {
@@ -14,6 +17,9 @@
     --button-bg: #bb86fc;
     --button-hover: #9b6dd3;
     --shadow-color: rgba(0, 0, 0, 0.5);
+    --nav-bg: #1e1e1e;
+    --nav-text: #e0e0e0;
+    --nav-active: #bb86fc;
 }
 
 body {
@@ -32,6 +38,45 @@ body {
     transition: background-color 0.3s, color 0.3s;
 }
 
+/* Navigation */
+.nav-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--nav-bg);
+    padding: 1rem;
+    box-shadow: 0 2px 4px var(--shadow-color);
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    z-index: 1000;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--nav-text);
+    font-weight: bold;
+    font-size: 1.1rem;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: color 0.3s, background-color 0.3s;
+}
+
+.nav-link:hover {
+    background-color: var(--shadow-color);
+}
+
+.nav-link.active {
+    color: var(--nav-active);
+    border-bottom: 2px solid var(--nav-active);
+}
+
+/* Adjust main container margin for fixed nav */
+body {
+    padding-top: 5rem; 
+}
+
 .container {
     text-align: center;
     background-color: var(--container-bg);
@@ -40,6 +85,8 @@ body {
     box-shadow: 0 4px 8px var(--shadow-color);
     transition: background-color 0.3s, box-shadow 0.3s;
     position: relative;
+    width: 100%; /* For responsiveness */
+    max-width: 500px;
 }
 
 .cookie-container {
@@ -61,7 +108,7 @@ body {
     min-height: 3em;
 }
 
-#fortune-button {
+#fortune-button, #predict-button {
     background-color: var(--button-bg);
     color: white; /* Keep white text for contrast on green/purple */
     padding: 10px 20px;
@@ -70,13 +117,15 @@ body {
     cursor: pointer;
     font-size: 1rem;
     transition: background-color 0.3s;
+    margin-top: 1rem;
 }
 
-[data-theme="dark"] #fortune-button {
+[data-theme="dark"] #fortune-button,
+[data-theme="dark"] #predict-button {
     color: #121212; /* Dark text on light purple button for better contrast */
 }
 
-#fortune-button:hover {
+#fortune-button:hover, #predict-button:hover {
     background-color: var(--button-hover);
 }
 
@@ -162,4 +211,71 @@ body {
 
 #theme-toggle:hover {
     background-color: var(--shadow-color);
+}
+
+/* Animal Test Specifics */
+.upload-container {
+    margin: 20px 0;
+    border: 2px dashed var(--text-color);
+    border-radius: 10px;
+    padding: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.upload-container:hover {
+    background-color: var(--shadow-color);
+}
+
+.upload-icon {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+#image-preview {
+    max-width: 100%;
+    max-height: 300px;
+    border-radius: 10px;
+}
+
+.result-container {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.result-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.result-label {
+    width: 60px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.bar-container {
+    flex-grow: 1;
+    background-color: #eee;
+    height: 20px;
+    border-radius: 10px;
+    margin: 0 10px;
+    overflow: hidden;
+}
+
+.bar {
+    height: 100%;
+    background-color: #ccc;
+    transition: width 0.5s ease-in-out;
+}
+
+.result-percentage {
+    width: 40px;
+    text-align: right;
 }
