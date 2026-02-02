@@ -1,33 +1,52 @@
-# Fortune Cookie App
+# Project Blueprint
 
 ## Overview
+This is a modern web application featuring three main interactive modules:
+1.  **Fortune Cookie:** A daily fortune generator.
+2.  **Animal Face Test:** An AI-powered image classifier (Dog vs. Cat).
+3.  **Voice Zoo:** An AI-powered audio classifier (Animal sounds).
 
-This is a simple web application that displays a random fortune cookie message when a button is clicked.
+The application is built using **Web Components** for modularity, **Modern CSS** (Layers, Variables, Oklch colors) for styling, and follows the Firebase Studio AI Development Guidelines.
 
-## Project Structure
+## Architecture
+-   **Core:** Vanilla JavaScript with Web Components (Custom Elements, Shadow DOM).
+-   **Styling:** CSS Modules/Shadow DOM styles + Global Variables in `style.css`.
+-   **AI Models:**
+    -   Teachable Machine Image Model (Animal Face).
+    -   Teachable Machine Audio Model (Voice Zoo).
+-   **Hosting:** Firebase Hosting.
 
-*   `index.html`: The main HTML file.
-*   `style.css`: The CSS file for styling.
-*   `main.js`: The JavaScript file for functionality.
+## Current Plan (Refactoring for High-Quality Standards)
+1.  **Refactor into Web Components:**
+    -   `nav-bar`: Shared navigation.
+    -   `app-footer`: Shared footer.
+    -   `theme-toggle`: Dark mode switch.
+    -   `fortune-cookie`: The main fortune feature.
+    -   `animal-face-test`: The image classification feature.
+    -   `voice-zoo`: The audio classification feature.
+2.  **Modernize CSS:**
+    -   Implement CSS Layers (`reset`, `base`, `layout`, `components`).
+    -   Add "Noise" texture and premium shadows/gradients.
+    -   Use `@container` queries for responsive components.
+3.  **Clean Up:**
+    -   Remove redundant global scripts (`main.js`, `animal.js`, `theme.js` after migration).
+    -   Ensure `index.html` is the primary entry point (SPA-like feel) or maintain multi-page with shared components. *Decision: Maintain multi-page for now as it's set up that way, but use components to ensure consistency.*
+4.  **Analytics:**
+    -   Add Google Analytics (GA4) tracking code to all HTML pages (`G-Y0EWFHQPL3`).
 
-## Features
+## Feature Specifications
 
-*   Displays a random fortune from a predefined list.
-*   A button to generate a new fortune.
-*   **Dark/Light Mode:** A toggle to switch between dark and light themes, persisting user preference.
-*   **Partnership Inquiry Form (Formspree):** A simple contact form for users to send inquiries.
-*   **Disqus Comments:** Integration of Disqus for comments section.
-*   **Animal Face Test:** A new page using Google Teachable Machine to classify images as Dog or Cat, utilizing file upload input and a local model.
+### 1. Fortune Cookie
+-   **Input:** User click.
+-   **Output:** Random text fortune.
+-   **UI:** An animated SVG cookie.
 
-*   **AdSense Integration:** Google AdSense script added for monetization.
-*   **AdSense Optimization:** Enhanced content, SEO meta tags, and Privacy Policy page to meet approval standards.
+### 2. Animal Face Test
+-   **Input:** Image upload/camera.
+-   **Output:** Probability bars (Dog vs. Cat).
+-   **Model:** Teachable Machine Image.
 
-## Current Plan
-
-*   **Objective:** Optimize the website for Google AdSense approval.
-*   **Steps:**
-    1.  Create `privacy.html` (Privacy Policy page).
-    2.  Update `index.html`: Add SEO meta tags, a descriptive article about Fortune Cookies, and a footer.
-    3.  Update `animal.html`: Add SEO meta tags, a descriptive article about the test, and a footer.
-    4.  Update `style.css` for the new content and footer.
-    5.  Commit and deploy.
+### 3. Voice Zoo
+-   **Input:** Microphone audio.
+-   **Output:** Real-time probability bars for animal sounds.
+-   **Model:** Teachable Machine Audio.

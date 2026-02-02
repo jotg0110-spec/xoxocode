@@ -1,59 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y0EWFHQPL3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-Y0EWFHQPL3');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Animal Face Test: Upload your photo and see if you look more like a Dog or a Cat using our AI-powered analyzer.">
+    <meta name="description" content="Animal Face Test: Upload your photo and see if you look more like a Dog or a Cat.">
     <title>Animal Face Test - Dog or Cat?</title>
     <link rel="stylesheet" href="style.css">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4731686284204006"
-     crossorigin="anonymous"></script>
+    
+    <!-- Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+    
+    <!-- Module Imports -->
+    <script type="module" src="components/NavBar.js"></script>
+    <script type="module" src="components/ThemeToggle.js"></script>
+    <script type="module" src="components/AnimalFaceTest.js"></script>
+    <script type="module" src="components/AppFooter.js"></script>
 </head>
 <body>
-    <div class="nav-bar">
-        <a href="index.html" class="nav-link">Fortune Cookie</a>
-        <a href="animal.html" class="nav-link active">Animal Face Test</a>
-    </div>
+    <nav-bar>
+        <theme-toggle slot="toggle"></theme-toggle>
+    </nav-bar>
 
-    <div class="container">
-        <button id="theme-toggle" aria-label="Toggle Dark Mode">🌓</button>
-        <h1>Animal Face Test</h1>
-        <p>Upload a photo to see if it looks more like a Dog or a Cat!</p>
-        
-        <div class="upload-container">
-            <input type="file" id="image-upload" accept="image/*" hidden>
-            <label for="image-upload" class="upload-label">
-                <div class="upload-icon">📸</div>
-                <span>Click to Upload Image</span>
-            </label>
-            <img id="image-preview" src="#" alt="Image Preview" style="display: none;">
-        </div>
+    <main>
+        <animal-face-test></animal-face-test>
 
-        <div id="loading" style="display: none;">Loading Model...</div>
-        
-        <div id="label-container" class="result-container"></div>
-        
-        <button id="predict-button" style="display: none;">Analyze Face</button>
-    </div>
+        <section class="content-section" style="max-width: 800px; text-align: left; background: var(--surface-light); padding: 2rem; border-radius: 12px; box-shadow: var(--shadow-sm);">
+            <h2 style="color: var(--primary); margin-bottom: 1rem;">How Does It Work?</h2>
+            <p style="color: var(--text-muted);">This Animal Face Test uses advanced AI and Machine Learning to analyze facial features. We utilize a custom model trained with Google's Teachable Machine.</p>
+            <p style="color: var(--text-muted);">Your photos are processed locally on your device and never uploaded to a server.</p>
+        </section>
+    </main>
 
-    <div class="content-section">
-        <h2>How Does It Work?</h2>
-        <p>This Animal Face Test uses advanced Artificial Intelligence (AI) and Machine Learning technology to analyze facial features. We utilize a custom model trained with Google's Teachable Machine, which has learned to distinguish between characteristics commonly found in dogs and cats.</p>
-        <p>When you upload an image, it is processed locally on your device using TensorFlow.js. This means your photos are <strong>never uploaded to a server</strong>, ensuring your privacy is protected. The model breaks down the image into patterns and compares them against its training data to provide a fun prediction of whether you have a "Dog Face" or a "Cat Face".</p>
-        <p>Give it a try with photos of yourself, your friends, or even your pets! Please note that this is for entertainment purposes only.</p>
-    </div>
-
-    <footer>
-        <p>&copy; 2026 Fortune Cookie App. All rights reserved.</p>
-        <div class="footer-links">
-            <a href="index.html">Home</a>
-            <a href="animal.html">Animal Test</a>
-            <a href="privacy.html">Privacy Policy</a>
-        </div>
-    </footer>
-
-    <script src="animal.js"></script>
+    <app-footer></app-footer>
 </body>
 </html>

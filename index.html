@@ -1,88 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y0EWFHQPL3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-Y0EWFHQPL3');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Get your daily fortune cookie message online! A simple and fun way to see what the future holds with our free fortune cookie generator.">
+    <meta name="description" content="Get your daily fortune cookie message online!">
     <title>Fortune Cookie - Daily Fortune Generator</title>
     <link rel="stylesheet" href="style.css">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4731686284204006"
-     crossorigin="anonymous"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4731686284204006" crossorigin="anonymous"></script>
+    
+    <!-- Module Imports -->
+    <script type="module" src="components/NavBar.js"></script>
+    <script type="module" src="components/ThemeToggle.js"></script>
+    <script type="module" src="components/FortuneCookie.js"></script>
+    <script type="module" src="components/ContactForm.js"></script>
+    <script type="module" src="components/AppFooter.js"></script>
 </head>
 <body>
-    <div class="nav-bar">
-        <a href="index.html" class="nav-link active">Fortune Cookie</a>
-        <a href="animal.html" class="nav-link">Animal Face Test</a>
-    </div>
+    <nav-bar>
+        <theme-toggle slot="toggle"></theme-toggle>
+    </nav-bar>
 
-    <div class="container">
-        <button id="theme-toggle" aria-label="Toggle Dark Mode">🌓</button>
-        <h1>Fortune Cookie</h1>
-        <div class="cookie-container">
-            <img src="cookie.svg" alt="Fortune Cookie" id="cookie">
+    <main>
+        <fortune-cookie></fortune-cookie>
+
+        <section class="content-section" style="max-width: 800px; text-align: left; background: var(--surface-light); padding: 2rem; border-radius: 12px; box-shadow: var(--shadow-sm);">
+            <h2 style="color: var(--primary); margin-bottom: 1rem;">About Fortune Cookies</h2>
+            <p style="color: var(--text-muted);">Fortune cookies are crisp, sugary cookies usually made from flour, sugar, vanilla, and sesame seed oil with a "fortune" wrapped inside.</p>
+            <p style="color: var(--text-muted);">Commonly associated with Chinese cuisine in the US, they actually originated in Japan.</p>
+        </section>
+
+        <contact-form></contact-form>
+        
+        <div class="container comments-container" style="max-width: 800px; width: 100%;">
+            <h2>Comments</h2>
+            <div id="disqus_thread"></div>
         </div>
-        <p id="fortune-text">Click the cookie to get your fortune!</p>
-        <button id="fortune-button">Get Fortune</button>
-    </div>
+    </main>
 
-    <div class="content-section">
-        <h2>About Fortune Cookies</h2>
-        <p>Fortune cookies are crisp, sugary cookies usually made from flour, sugar, vanilla, and sesame seed oil with a "fortune" wrapped inside. A "fortune" is a piece of paper with words of wisdom, an aphorism, or a vague prophecy.</p>
-        <p>While commonly associated with Chinese cuisine in the United States, fortune cookies actually originated in Japan. They were brought to the US by Japanese immigrants in the late 19th and early 20th centuries. Today, they are a fun tradition enjoyed by millions around the world at the end of a meal.</p>
-        <p>Use our free online Fortune Cookie generator to start your day with a positive message or a bit of wisdom. Whether you're looking for guidance, a lucky number, or just a smile, crack open a digital cookie and see what awaits!</p>
-    </div>
-
-    <div class="container form-container">
-        <h2>Partnership Inquiry</h2>
-        <form action="https://formspree.io/f/mykjrlaw" method="POST">
-            <div class="form-group">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" rows="5" required></textarea>
-            </div>
-            <button type="submit" class="submit-button">Send Inquiry</button>
-        </form>
-    </div>
-    
-    <div class="container comments-container">
-        <h2>Comments</h2>
-        <div id="disqus_thread"></div>
-    </div>
-    <script src="main.js"></script>
+    <app-footer></app-footer>
 
     <script>
-        /**
-        *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
-        /*
-        var disqus_config = function () {
-        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-        };
-        */
-        (function() { // DON'T EDIT BELOW THIS LINE
+        (function() { 
         var d = document, s = d.createElement('script');
         s.src = 'https://tgjo.disqus.com/embed.js';
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
         })();
     </script>
-    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-    <footer>
-        <p>&copy; 2026 Fortune Cookie App. All rights reserved.</p>
-        <div class="footer-links">
-            <a href="index.html">Home</a>
-            <a href="animal.html">Animal Test</a>
-            <a href="privacy.html">Privacy Policy</a>
-        </div>
-    </footer>
 </body>
 </html>

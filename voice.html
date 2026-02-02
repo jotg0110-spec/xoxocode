@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y0EWFHQPL3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-Y0EWFHQPL3');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice Zoo - Animal Sound Challenge</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/speech-commands@0.4.0/dist/speech-commands.min.js"></script>
+    
+    <!-- Module Imports -->
+    <script type="module" src="components/NavBar.js"></script>
+    <script type="module" src="components/ThemeToggle.js"></script>
+    <script type="module" src="components/VoiceZoo.js"></script>
+    <script type="module" src="components/AppFooter.js"></script>
+</head>
+<body>
+    <nav-bar>
+        <theme-toggle slot="toggle"></theme-toggle>
+    </nav-bar>
+
+    <main>
+        <voice-zoo></voice-zoo>
+    </main>
+
+    <app-footer></app-footer>
+</body>
+</html>
